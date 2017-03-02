@@ -1,0 +1,10 @@
+<% if current_user %>
+  <div id="map">
+      <%=
+     map(:center => {
+       :latlng => [51.52238797921441, -0.08366235665359283],
+       :zoom => 5
+     })
+    %>
+  </div>
+<% end %>

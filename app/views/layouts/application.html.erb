@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ClimbingApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+    <body>
+     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <a class="navbar-brand" href="/">NEXT BETA</a>
+
+       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+         <% if current_user %>
+           <ul class="navbar-nav mr-auto">
+             <li class="nav-item"><%= link_to 'Log Out', logout_path, method: :delete %></li>
+             <li class="nav-item"><%= image_tag current_user.image_url, alt: current_user.name %></li>
+           </ul>
+         <% else %>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><%= link_to 'Google+', '/auth/google' %></li>
+          </ul>
+        <% end %>
+       </div>
+     </nav>
+     <% flash.each do |key, value| %>
+       <div class="alert alert-<%= key %>">
+         <%= value %>
+       </div>
+     <% end %>
+    <%= yield %>
+  </body>
+</html>
