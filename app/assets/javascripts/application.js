@@ -15,5 +15,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require chartkick
-//= require leaflet 
+//= require leaflet
 //= require_tree .
+//= require get-shit-done
+//= require gsdk-bootstrapswitch
+//= require custom

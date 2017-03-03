@@ -1,42 +1,31 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
  *= require leaflet
 
  */
+@import "bootstrap-sprockets";
 @import "bootstrap";
+@import "gsdk";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-.landing_image {
-  position: fixed;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-}
 
 #map {
+
   height: 500px;
   width: 750px;
   text-align: center;
 }
 
-.nav-item {
-  text-align: right;
+body {
+  color: black;
+}
+.img-src {
+  background-image: asset-url('5242-rock-climbing-mountain.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+  width: 100vw;
+}
+
+.avatar {
+    border-radius: 50%;
 }
