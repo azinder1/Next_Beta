@@ -1,0 +1,14 @@
+<div id="map" class='dark' class = "map">
+</div>
+
+
+<%= form_for @route do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.hidden_field :lat %>
+  <%= f.hidden_field :lng %>
+  <%= f.submit %>
+<% end %>
+<script type="text/javascript">
+  initmap()
+</script>

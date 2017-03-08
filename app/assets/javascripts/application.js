@@ -15,8 +15,9 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require chartkick
-//= require leaflet
+//= require mapbox
 //= require_tree .
 //= require get-shit-done
 //= require gsdk-bootstrapswitch
 //= require custom
+//= require jquery-ui-1.10.4.custom.min.js

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ClimbingApp</title>
+    <title>NEXT BETA</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -38,13 +38,9 @@
                 <li class="dropdown">
                       <a href="#gsdk" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#gsdk">Action</a></li>
-                        <li><a href="#gsdk">Another action</a></li>
-                        <li><a href="#gsdk">Something</a></li>
-                        <li><a href="#gsdk">Another action</a></li>
-                        <li><a href="#gsdk">Something</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#gsdk">Separated link</a></li>
+                        <li><a href="#gsdk">PROFILE</a></li>
+                        <li><a href="#gsdk">MAP</a></li>
+                        <li><a href="#gsdk">FORUM</a></li>
                       </ul>
                 </li>
                 <li>
@@ -69,22 +65,11 @@
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
-        <div class="blurred-container">
-            <div class="img-src"> </div>
-        </div>
+        <%= yield(:photo )%>
     </div><!--  end navbar -->
 
 </div> <!-- end menu-dropdown -->
-<div class="main">
-    <div class="container tim-container" style="max-width:800px; padding-top:100px">
-       <h1 class="text-center">Awesome looking header <br> just for my friends<small class="subtitle">This is like a small motto before the story.</small></h1>
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-           <!--     end extras -->
-    </div>
-    <div class="space"></div>
-<!-- end container -->
-</div>
      <% flash.each do |key, value| %>
        <div class="alert alert-<%= key %>">
          <%= value %>
