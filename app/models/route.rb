@@ -4,6 +4,8 @@ class Route < ActiveRecord::Base
   validates :description, :presence => true
   validates :lat, :presence => true
   validates :lng, :presence => true
+  belongs_to :user
+  has_many :comments
 
   def build_route()
     {

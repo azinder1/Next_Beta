@@ -29,9 +29,9 @@ def create
 end
 
 def show
+  @comment = Comment.new
   @route = Route.find(params[:id])
   @user = User.find(@route.user_id)
-  @comments = Comment.all
   respond_to do |format|
     format.html
     format.js

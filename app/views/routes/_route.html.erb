@@ -11,12 +11,22 @@
    <p><%= @route.description %></p>
  </div>
  <hr>
- <% if @comments.any? %>
+ <%= form_for [@route, @comment], remote: true do |f|%>
+	 <%= f.label  :content %>
+	 <%= f.text_field  :content %>
+	 <%= f.label  :rating %>
+	 <%= f.text_field  :rating %>
+	 <%= f.submit %>
+ <% end %>
+ <div id="comment_field">
+ <% if @route.comments.any? %>
+		<% @route.comments.each do |c|%>
+		<p><%=c.user.name%><span class = "rating"><%= c.rating %></span></p>
+		<p>c.content</p>
+		<% end %>
+		<% else %>
+		<p class = 'default-comment'>There are not comments for this route yet</p>
+		<% end %>
 
- 	<% @comments.each do |c|%>
-		<p>c.user.name</p>
-	<% end %>
-	<% else %>
-		<p>There are not comments for this route yet</p>
-	<% end %>
+	</div>
 </div>

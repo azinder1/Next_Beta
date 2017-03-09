@@ -53,8 +53,13 @@ input {
   border-radius: 10px;
   position: absolute;
   z-index: 2;
+  overflow: scroll;
 }
 
 #myModalLabel {
   text-align: center;
+}
+
+.rating {
+  text-align: right;
 }
