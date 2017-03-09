@@ -1,0 +1,15 @@
+<div id="route_form">
+  <h4>Create a Route</h4>
+  <%= form_for @route, class: 'form-group' do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class:'form-control' %>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_field :description, class:'form-control' %>
+    <br>
+    <%= f.label :difficulty_rating %>
+    <%= f.text_field :difficulty_rating, class:'form-control'%>
+    <br>
+  <%= f.submit %>
+  <% end %>
+</div>

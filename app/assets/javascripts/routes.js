@@ -19,6 +19,12 @@ function initmap() {
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>';
 
+	var satelliteLayer = L.tileLayer(mapboxUrl, {
+
+		maxZoom: 19,
+		attribution: attribution,
+		id: 'mapbox.satellite'
+	});
 
 	var outdoorsLayer = L.tileLayer(mapboxUrl, {
 		maxZoom: 23,
@@ -26,12 +32,6 @@ function initmap() {
 		id: 'mapbox.outdoors'
 	});
 
-	var satelliteLayer = L.tileLayer(mapboxUrl, {
-
-		maxZoom: 19,
-		attribution: attribution,
-		id: 'mapbox.satellite'
-	});
 
 	var lightLayer = L.tileLayer(mapboxUrl, {
 		maxZoom: 23,
@@ -48,12 +48,12 @@ function initmap() {
 	 map = L.map("map", {
 			center: [41.77131167976407, -103.00781250000001],
 			zoom: 5,
-			layers: [outdoorsLayer, satelliteLayer, osmLayer, lightLayer]});
+			layers: [satelliteLayer, outdoorsLayer, osmLayer, lightLayer]});
 
 	var tileLayers = {
+			"Satellite": satelliteLayer,
 			"OpenStreetMap": osmLayer,
 			"Light": lightLayer,
-			"Satellite": satelliteLayer,
 			"Topo (3m resolution)": outdoorsLayer
 			};
 
@@ -64,7 +64,7 @@ function initmap() {
 	  .on('ready', function() {
 	    myLayer.eachLayer(function(layer) {
 	      map.fitBounds(myLayer.getBounds());
-	      layer.bindPopup('<p>Name:' + layer.feature.properties.title + '</p> <p>Rating:'+layer.feature.properties.rating+'</p><a data-remote ="true" href="/routes/'+layer.feature.properties.id + '"'+ '>See Details</a>');
+	      layer.bindPopup('<p>Name: ' + layer.feature.properties.title + '</p> <p>Rating: '+layer.feature.properties.rating+'</p><a data-remote ="true" href="/routes/'+layer.feature.properties.id + '"'+ '>See Details</a>');
 	    });
 	  })
 	  .addTo(map);
@@ -84,11 +84,13 @@ function getXmlHttpObject() {
 function onMapClick(e) {
 	lat = e.latlng.lat.toString();
 	lng = e.latlng.lng.toString();
+	var cookie_val = lat + "|" + lng
+	document.cookie = "lat_lng=" + escape(cookie_val);
 		$("input#route_lat").val(lat);
 		$("input#route_lng").val(lng);
 
     marker
         .setLatLng(e.latlng)
         .addTo(map);
-		marker.bindPopup("Add Route")
+		marker.bindPopup('<a href = "/routes/new" data-remote="true">Add Route</a>')
 }
