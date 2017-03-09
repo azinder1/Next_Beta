@@ -2,9 +2,9 @@
  *= require mapbox
 
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "gsdk";
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "gsdk";
 
 
 .img-src {
@@ -17,19 +17,44 @@
 
 #map {
 
-  width: 800px;
+  width: 1000px;
   height: 600px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 40px;
-
+  margin-top: 80px;
+  z-index: 1;
 }
 
 body {
-  color: black;
+  color: white;
+  background-color: black;
 }
 
 .avatar {
   margin-top: 10px;
   border-radius: 50%;
+}
+
+input {
+  color: black;
+}
+
+.main {
+  color: black
+}
+
+#responsive {
+  background-color: rgba(0, 0, 0, 0.9);
+  left: 50%;
+  top: 200px;
+  transform: translateX(-50%);
+  height: 400px;
+  width: 600px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 2;
+}
+
+#myModalLabel {
+  text-align: center;
 }

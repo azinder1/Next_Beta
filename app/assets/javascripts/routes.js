@@ -45,7 +45,6 @@ function initmap() {
 		id: 'mapbox.light'
 	});
 
-	//TODO: add the ability to center map from script to support search
 	 map = L.map("map", {
 			center: [41.77131167976407, -103.00781250000001],
 			zoom: 5,
@@ -65,7 +64,7 @@ function initmap() {
 	  .on('ready', function() {
 	    myLayer.eachLayer(function(layer) {
 	      map.fitBounds(myLayer.getBounds());
-	      layer.bindPopup('<p>Name:' + layer.feature.properties.title + '</p> <p>Rating:'+layer.feature.properties.rating+'</p><a href="/coordinates/'+layer.feature.properties.id + '"'+ '>See Details</a>');
+	      layer.bindPopup('<p>Name:' + layer.feature.properties.title + '</p> <p>Rating:'+layer.feature.properties.rating+'</p><a data-remote ="true" href="/routes/'+layer.feature.properties.id + '"'+ '>See Details</a>');
 	    });
 	  })
 	  .addTo(map);
@@ -85,11 +84,11 @@ function getXmlHttpObject() {
 function onMapClick(e) {
 	lat = e.latlng.lat.toString();
 	lng = e.latlng.lng.toString();
-		$("input#coordinate_lat").val(lat);
-		$("input#coordinate_lng").val(lng);
-
+		$("input#route_lat").val(lat);
+		$("input#route_lng").val(lng);
 
     marker
         .setLatLng(e.latlng)
         .addTo(map);
+		marker.bindPopup("Add Route")
 }

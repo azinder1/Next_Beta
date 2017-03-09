@@ -5,7 +5,7 @@ class Route < ActiveRecord::Base
   validates :lat, :presence => true
   validates :lng, :presence => true
 
-  def build_coordinate()
+  def build_route()
     {
       type: "Feature",
       geometry: {

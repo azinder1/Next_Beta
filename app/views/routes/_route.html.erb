@@ -1,0 +1,22 @@
+<div id="responsive">
+	<div class="modal-header">
+		<%= link_to 'x', routes_path, class: "close" %>
+
+   <h3 id="myModalLabel"><%= @route.name %></h3>
+ </div>
+ <div class="">
+ 	<p>Added By: <%= @user.name %></p>
+ </div>
+ <div class="modal-body">
+   <p><%= @route.description %></p>
+ </div>
+ <hr>
+ <% if @comments.any? %>
+
+ 	<% @comments.each do |c|%>
+		<p>c.user.name</p>
+	<% end %>
+	<% else %>
+		<p>There are not comments for this route yet</p>
+	<% end %>
+</div>

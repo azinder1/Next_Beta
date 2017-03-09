@@ -7,6 +7,7 @@ class RoutesController < ApplicationController
   respond_to do |format|
     format.html {render :index}
     format.json { render json: @geojson }
+    format.js
   end
 end
 
@@ -18,6 +19,7 @@ end
 
 def create
   @route = Route.new(route_params)
+  @route[:user_id] = current_user.id
   if @route.save
     redirect_to routes_path
   else
@@ -28,6 +30,12 @@ end
 
 def show
   @route = Route.find(params[:id])
+  @user = User.find(@route.user_id)
+  @comments = Comment.all
+  respond_to do |format|
+    format.html
+    format.js
+  end
 end
 private
 def route_params

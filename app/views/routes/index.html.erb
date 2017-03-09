@@ -1,14 +1,18 @@
-<div id="map" class='dark' class = "map">
-</div>
+<div id="map-page">
 
-
-<%= form_for @route do |f| %>
+</div><div id="map" class='dark' class = "map">
+  <%= form_for @route do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :difficulty_rating %>
+  <%= f.text_field :difficulty_rating %>
   <%= f.hidden_field :lat %>
   <%= f.hidden_field :lng %>
   <%= f.submit %>
-<% end %>
-<script type="text/javascript">
+  <% end %>
+  <script type="text/javascript">
   initmap()
-</script>
+  </script>
+</div>
