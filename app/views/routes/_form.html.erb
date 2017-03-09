@@ -4,7 +4,7 @@
 
    <h3 id="myModalLabel"><%= @route.name %></h3>
  </div>
- <div class="">
+ <div class="form_header">
   <h2>Add A Route:</h2>
  </div>
  <hr>
@@ -14,12 +14,12 @@
    <%= f.text_field :name, class:'form-control' %>
    <br>
    <%= f.label :description %>
-   <%= f.text_field :description, class:'form-control' %>
+   <%= f.text_area :description, class:'form-control' %>
    <br>
    <%= f.label :difficulty_rating %>
    <%= f.text_field :difficulty_rating, class:'form-control'%>
    <br>
-   <%= f.submit %>
+   <%= f.submit 'Submit', :class => 'btn' %>
    <% end %>
 
  </div>

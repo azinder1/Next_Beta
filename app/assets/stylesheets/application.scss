@@ -11,18 +11,19 @@
   background-image: asset-url('5242-rock-climbing-mountain.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 60vh;
+  height: 55vh;
   width: 100vw;
 }
 
 #map {
 
   width: 1000px;
-  height: 600px;
+  height: 575px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 80px;
   z-index: 1;
+  padding-bottom: 25px;
 }
 
 body {
@@ -44,7 +45,7 @@ input {
 }
 
 #responsive {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.85);
   left: 50%;
   top: 200px;
   transform: translateX(-50%);
@@ -57,11 +58,11 @@ input {
 }
 
 #route_form{
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.85);
   left: 50%;
-  top: 200px;
+  top: 150px;
   transform: translateX(-50%);
-  height: 400px;
+  height: 500px;
   width: 600px;
   border-radius: 10px;
   position: absolute;
@@ -86,6 +87,20 @@ input {
 }
 
 .form{
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 0px 30px 30px 30px ;
+}
+.form_header {
+  text-align: center;
+}
+.modal-header {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.route_content {
+  padding: 0px 10px 0px 10px
+}
+
+.route-rating {
+  padding-right: 40px;
 }

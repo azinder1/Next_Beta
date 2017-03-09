@@ -1,31 +1,43 @@
 <div id="responsive">
-	<div class="modal-header">
+	<div class="route_content">
+		<div class="modal-header">
+			<p class = " btn close" onClick = "closeWindow()"> x </p>
 
-   <h3 id="myModalLabel"><%= @route.name %></h3>
- </div>
- <div class="">
- 	<p>Added By: <%= @user.name %></p>
- </div>
- <div class="modal-body">
-   <p><%= @route.description %></p>
- </div>
- <hr>
- <%= form_for [@route, @comment], remote: true do |f|%>
-	 <%= f.label  :content %>
-	 <%= f.text_field  :content %>
-	 <%= f.label  :rating %>
-	 <%= f.text_field  :rating %>
-	 <%= f.submit %>
- <% end %>
- <div id="comment_field">
- <% if @route.comments.any? %>
-		<% @route.comments.each do |c|%>
-		<p><%=c.user.name%><span class = "rating"><%= c.rating %></span></p>
-		<p>c.content</p>
-		<% end %>
-		<% else %>
-		<p class = 'default-comment'>There are not comments for this route yet</p>
-		<% end %>
+			<h3 id="myModalLabel"><%= @route.name %></h3>
+		</div>
+		<div class="">
+			<p>Added By: <%= @user.name %></p>
+		</div>
+		<div class="modal-body">
+			<p>(<%=@route.difficulty_rating%>) <%= @route.description %></p>
+		</div>
+		<div class=" form form-group">
+			<%= form_for [@route, @comment], remote: true do |f|%>
+				<%= f.label  :content %>
+				<%= f.text_field  :content, class:'form-control' %>
+				<%= f.label  :rating %>
+				<%= f.text_field  :rating, class:'form-control route-rating' %>
+				<br>
+				<%= f.submit 'Comment', :class => 'btn' %>
+			<% end %>
+
+			<hr>
+		</div>
+		<div id="comment_field">
+			<% if @route.comments.any? %>
+			<% @route.comments.each do |c|%>
+			<div class="row">
+				<p class = "col-md-6 user_name" ><%=c.user.name%></p>
+				<p class = " rating col-md-6">Rating: <%= c.rating %></p>
+			</div>
+			<p><%= c.content %></p>
+			<hr>
+			<% end %>
+			<% else %>
+			<p class = 'default-comment'>There are not comments for this route yet</p>
+			<% end %>
+
+		</div>
 
 	</div>
 </div>
