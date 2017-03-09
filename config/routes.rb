@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :routes do
     resources :comments
   end
+  resources :users
 end

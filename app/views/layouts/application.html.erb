@@ -7,6 +7,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
     <body>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
       <div id="navbar-full">
     <div id="navbar">
     <!--
@@ -32,17 +37,22 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#gsdk">Link</a></li>
-                <li class="dropdown">
-                      <a href="#gsdk" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <li class="dropdown navbar-right">
+                      <a href="#gsdk" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#gsdk">PROFILE</a></li>
-                        <li><a href="#gsdk">MAP</a></li>
-                        <li><a href="#gsdk">FORUM</a></li>
+                        <% if current_user %>
+                          <li><%= link_to "PROFILE", user_path(current_user) %></li>
+                          <li><%= link_to "ROUTES", routes_path %></li>
+                          <li><a href="#gsdk">FORUM</a></li>
+                        <% else %>
+                          <li><%= link_to "ROUTES", routes_path %></li>
+                          <li><a href="#gsdk">FORUM</a></li>
+                        <% end %>
                       </ul>
                 </li>
+
                 <li>
                     <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
                 </li>
@@ -59,6 +69,7 @@
                  </ul>
                  <% else %>
                  <ul class="nav navbar-nav navbar-right">
+                   <li></li>
                     <li class=""><%= link_to 'Google+', '/auth/google', class: 'btn btn-round btn-default' %></li>
                   </ul>
                 <% end %>
@@ -70,11 +81,6 @@
 
 </div> <!-- end menu-dropdown -->
 
-     <% flash.each do |key, value| %>
-       <div class="alert alert-<%= key %>">
-         <%= value %>
-       </div>
-     <% end %>
     <%= yield %>
   </body>
 </html>

@@ -4,7 +4,6 @@ var plotlayers=[];
 var polygon;
 var marker = L.marker();
 var coordinates
-var featureLayer
 var map
 
 function initmap() {
@@ -86,8 +85,7 @@ function onMapClick(e) {
 	lng = e.latlng.lng.toString();
 	var cookie_val = lat + "|" + lng
 	document.cookie = "lat_lng=" + escape(cookie_val);
-		$("input#route_lat").val(lat);
-		$("input#route_lng").val(lng);
+
 
     marker
         .setLatLng(e.latlng)
