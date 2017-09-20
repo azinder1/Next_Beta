@@ -48,6 +48,9 @@ class RoutesController < ApplicationController
     @comment = Comment.new
     @route = Route.find(params[:id])
     @user = User.find(@route.user_id)
+    @results = HTTParty.get("http://api.wunderground.com/api/7ab1115c66862fdf/conditions/q/" +  @route.lat + "," + @route.lng + ".json",
+        )
+    binding.pry
     respond_to do |format|
       format.html
       format.js
