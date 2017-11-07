@@ -39,7 +39,7 @@ class RoutesController < ApplicationController
     if @route.save
       redirect_to routes_path
     else
-       flash[:notice] = "Please add a marker on the map"
+      flash[:notice] = "Please add a marker on the map"
       redirect_to routes_path
     end
   end
@@ -50,7 +50,8 @@ class RoutesController < ApplicationController
     @user = User.find(@route.user_id)
     @results = HTTParty.get("http://api.wunderground.com/api/7ab1115c66862fdf/conditions/q/" +  @route.lat + "," + @route.lng + ".json",
         )
-    binding.pry
+    @ten_day_results = HTTParty.get("http://api.wunderground.com/api/7ab1115c66862fdf/forecast10day/q/" +  @results["current_observation"]["display_location"]["state"] + "/" + @results["current_observation"]["display_location"]["city"] + ".json",
+        )
     respond_to do |format|
       format.html
       format.js

@@ -9,7 +9,8 @@
 			<p>Added By: <%= @user.name %></p>
 		</div>
 		<div class="weather">
-			Current Weather: <h4><%= @results %></h4>
+			Current Weather for <%= @results["current_observation"]["display_location"]["full"]%> : <h4><%= @ten_day_results["forecast"] %></h4>
+
 		</div>
 		<div class="modal-body">
 			<p>(<%=@route.difficulty_rating%>) <%= @route.description %></p>
