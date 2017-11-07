@@ -48,9 +48,9 @@ class RoutesController < ApplicationController
     @comment = Comment.new
     @route = Route.find(params[:id])
     @user = User.find(@route.user_id)
-    @results = HTTParty.get("http://api.wunderground.com/api/7ab1115c66862fdf/conditions/q/" +  @route.lat + "," + @route.lng + ".json",
+    @results = HTTParty.get("http://api.wunderground.com/api/" + ENV["WUNDERGROUND_KEY"] + "/conditions/q/" +  @route.lat + "," + @route.lng + ".json",
         )
-    @ten_day_results = HTTParty.get("http://api.wunderground.com/api/7ab1115c66862fdf/forecast10day/q/" +  @results["current_observation"]["display_location"]["state"] + "/" + @results["current_observation"]["display_location"]["city"] + ".json",
+    @ten_day_results = HTTParty.get("http://api.wunderground.com/api/" + ENV["WUNDERGROUND_KEY"] + "/forecast10day/q/" +  @results["current_observation"]["display_location"]["state"] + "/" + @results["current_observation"]["display_location"]["city"] + ".json",
         )
     respond_to do |format|
       format.html
