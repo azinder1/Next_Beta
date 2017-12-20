@@ -5,12 +5,23 @@
 
 			<h3 id="myModalLabel"><%= @route.name %></h3>
 		</div>
-		<div class="">
-			<p>Added By: <%= @user.name %></p>
-		</div>
 		<div class="weather">
-			Current Weather for <%= @results["current_observation"]["display_location"]["full"]%> : <h4><%= @ten_day_results["forecast"] %></h4>
-
+				<h4>Current Weather for <%= @results["current_observation"]["display_location"]["full"]%> : <%= @results["current_observation"]["weather"] %></h4>
+				<h4>3 Day Forecast:</h4>
+				<div class = 'row'>
+					<div class = 'col-sm-3'>
+						<h5><%= @day_one["title"]%>: <%= @day_one["icon"]%></h5>
+						<img src= <%= @day_one["icon_url"] %>>	
+					</div>
+					<div class = 'col-sm-3'>
+						<h5><%= @day_two["title"]%>: <%= @day_one["icon"]%></h5>
+						<img src= <%= @day_two["icon_url"] %>>						
+					</div>
+					<div class = 'col-sm-3'>
+						<h5><%= @day_three["title"]%>: <%= @day_three["icon"]%></h5>
+						<img src= <%= @day_three["icon_url"]%>>	
+					</div>
+				</div>
 		</div>
 		<div class="modal-body">
 			<p>(<%=@route.difficulty_rating%>) <%= @route.description %></p>
@@ -41,6 +52,9 @@
 			<p class = 'default-comment'>There are not comments for this route yet</p>
 			<% end %>
 
+		</div>
+		<div class="">
+			<p>Added By: <%= @user.name %></p>
 		</div>
 
 	</div>
