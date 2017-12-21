@@ -3,8 +3,8 @@ var plotlist;
 var plotlayers=[];
 var polygon;
 var marker = L.marker();
-var coordinates
-var map
+var coordinates;
+var map;
 
 function initmap() {
 	ajaxRequest=getXmlHttpObject();
@@ -81,6 +81,8 @@ function getXmlHttpObject() {
 
 
 function onMapClick(e) {
+	console.log(e)
+
 	lat = e.latlng.lat.toString();
 	lng = e.latlng.lng.toString();
 	var cookie_val = lat + "|" + lng
