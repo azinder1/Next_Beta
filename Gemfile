@@ -41,6 +41,7 @@ gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
 gem 'mapbox-rails'
 gem 'httparty'
+gem "administrate"
 
 
 group :development, :test do

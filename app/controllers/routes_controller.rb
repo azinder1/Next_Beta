@@ -27,19 +27,21 @@ class RoutesController < ApplicationController
   end
 
   def create
-    if cookies[:lat_lng]
-      @lat_lng = cookies[:lat_lng].split("|")
-    end
-    @lat = @lat_lng[0]
-    @lng = @lat_lng[1]
-    @route = Route.new(route_params)
-    @route[:user_id] = current_user.id
-    @route[:lat] = @lat
-    @route[:lng] = @lng
-    if @route.save
-      redirect_to routes_path
+    if current_user
+      if cookies[:lat_lng]
+        @lat_lng = cookies[:lat_lng].split("|")
+      end
+      @lat = @lat_lng[0]
+      @lng = @lat_lng[1]
+      @route = Route.new(route_params)
+      @route[:user_id] = current_user.id
+      @route[:lat] = @lat
+      @route[:lng] = @lng
+      if @route.save
+        redirect_to routes_path
+      end
     else
-      flash[:notice] = "Please add a marker on the map"
+      flash[:notice] = "Please sign in before adding a route"
       redirect_to routes_path
     end
   end
