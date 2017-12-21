@@ -81,8 +81,6 @@ function getXmlHttpObject() {
 
 
 function onMapClick(e) {
-	console.log(e)
-
 	lat = e.latlng.lat.toString();
 	lng = e.latlng.lng.toString();
 	var cookie_val = lat + "|" + lng
