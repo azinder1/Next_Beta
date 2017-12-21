@@ -39,14 +39,7 @@
                 <li class="dropdown navbar-right">
                       <a href="#gsdk" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <% if current_user %>
-                          <li><%= link_to "PROFILE", user_path(current_user) %></li>
-                          <li><%= link_to "ROUTES", routes_path %></li>
-                          <li><a href="#gsdk">FORUM</a></li>
-                        <% else %>
-                          <li><%= link_to "ROUTES", routes_path %></li>
-                          <li><a href="#gsdk">FORUM</a></li>
-                        <% end %>
+
                       </ul>
                 </li>
 
