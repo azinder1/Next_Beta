@@ -18,7 +18,7 @@
 
 ## Known Bugs
 
-_None that are known_
+_OAuth works but has issues with academic google accounts.  Suggest using gmail account for this reason_
 
 ## Support and contact details
 
@@ -26,7 +26,7 @@ _https://github.com/azinder1_
 
 ## Technologies Used
 
-_Rails, Sass, Materialize_
+_Rails, Bootstrap, Sass_
 
 ### License
 
