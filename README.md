@@ -1,24 +1,35 @@
-# README
+# _Next Beta_
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### _Rails App for finding your next climb using Mapbox.js library_
 
-Things you may want to cover:
+#### By _**Adam Zinder**_
 
-* Ruby version
 
-* System dependencies
+## Setup/Installation Requirements
 
-* Configuration
+* _$ git clone https://github.com/azinder1/Next_Beta_
+* _$ bundle install_
+* _$ brew install imagemagick_
+* _$ rails db:create_
+* _$ rails db:migrate_
+* _$ rails db:test:prepare_
+* _$ rails s_
+* _Use localhost:3000 in browser of choice_
 
-* Database creation
+## Known Bugs
 
-* Database initialization
+_None that are known_
 
-* How to run the test suite
+## Support and contact details
 
-* Services (job queues, cache servers, search engines, etc.)
+_https://github.com/azinder1_
 
-* Deployment instructions
+## Technologies Used
 
-* ...
+_Rails, Sass, Materialize_
+
+### License
+
+*MIT*
+
+Copyright (c) 2016 **_Adam Zinder_**
