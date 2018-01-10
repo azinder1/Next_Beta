@@ -5,38 +5,40 @@
 
 			<h3 id="myModalLabel"><%= @route.name %></h3>
 		</div>
-		<div class="weather">
-				<h4>Current Weather for <%= @results["current_observation"]["display_location"]["full"]%> : <%= @results["current_observation"]["weather"] %></h4>
-				<% if @ten_day_results %>
-					<h4>3 Day Forecast:</h4>
-					<div class = 'row'>
-						<div class = 'col-sm-3'>
-							<h5><%= @day_one["title"]%>: <%= @day_one["icon"]%></h5>
-							<img src= <%= @day_one["icon_url"] %>>	
+		<% if @results != nil %>
+			<div class="weather">
+					<h4>Current Weather for <%= @results["current_observation"]["display_location"]["full"]%> : <%= @results["current_observation"]["weather"] %></h4>
+					<% if @ten_day_results != nil %>
+						<h4>3 Day Forecast:</h4>
+						<div class = 'row'>
+							<div class = 'col-sm-3'>
+								<h5><%= @day_one["title"]%>: <%= @day_one["icon"]%></h5>
+								<img src= <%= @day_one["icon_url"] %>>	
+							</div>
+							<div class = 'col-sm-3'>
+								<h5><%= @day_two["title"]%>: <%= @day_one["icon"]%></h5>
+								<img src= <%= @day_two["icon_url"] %>>						
+							</div>
+							<div class = 'col-sm-3'>
+								<h5><%= @day_three["title"]%>: <%= @day_three["icon"]%></h5>
+								<img src= <%= @day_three["icon_url"]%>>	
+							</div>
 						</div>
-						<div class = 'col-sm-3'>
-							<h5><%= @day_two["title"]%>: <%= @day_one["icon"]%></h5>
-							<img src= <%= @day_two["icon_url"] %>>						
-						</div>
-						<div class = 'col-sm-3'>
-							<h5><%= @day_three["title"]%>: <%= @day_three["icon"]%></h5>
-							<img src= <%= @day_three["icon_url"]%>>	
-						</div>
-					</div>
+					<% end %>
 				<% end %>
-		</div>
-		<div class="modal-body">
-			<p>(<%=@route.difficulty_rating%>) <%= @route.description %></p>
-		</div>
-		<div class=" form form-group">
-			<%= form_for [@route, @comment], remote: true do |f|%>
-				<%= f.label  :content %>
-				<%= f.text_field  :content, class:'form-control' %>
-				<%= f.label  :rating %>
-				<%= f.text_field  :rating, class:'form-control route-rating' %>
-				<br>
-				<%= f.submit 'Comment', :class => 'btn' %>
-			<% end %>
+			</div>
+			<div class="modal-body">
+				<p>(<%=@route.difficulty_rating%>) <%= @route.description %></p>
+			</div>
+			<div class=" form form-group">
+				<%= form_for [@route, @comment], remote: true do |f|%>
+					<%= f.label  :content %>
+					<%= f.text_field  :content, class:'form-control' %>
+					<%= f.label  :rating %>
+					<%= f.text_field  :rating, class:'form-control route-rating' %>
+					<br>
+					<%= f.submit 'Comment', :class => 'btn' %>
+				<% end %>
 
 			<hr>
 		</div>
