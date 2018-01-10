@@ -51,10 +51,12 @@ class RoutesController < ApplicationController
     @route = Route.find(params[:id])
     @user = User.find(@route.user_id)
     @results = HTTParty.get("http://api.wunderground.com/api/" + ENV["WUNDERGROUND_KEY"] + "/conditions/q/" +  @route.lat + "," + @route.lng + ".json",)
-    @ten_day_results = HTTParty.get("http://api.wunderground.com/api/" + ENV["WUNDERGROUND_KEY"] + "/forecast10day/q/" +  @results["current_observation"]["display_location"]["state"] + "/" + @results["current_observation"]["display_location"]["city"] + ".json",)
-    @day_one = @ten_day_results["forecast"]["txt_forecast"]["forecastday"][2]
-    @day_two= @ten_day_results["forecast"]["txt_forecast"]["forecastday"][4]
-    @day_three = @ten_day_results["forecast"]["txt_forecast"]["forecastday"][6]
+    if @results["current_observation"]["display_location"]["country"] == "US"
+      @ten_day_results = HTTParty.get("http://api.wunderground.com/api/" + ENV["WUNDERGROUND_KEY"] + "/forecast10day/q/" +  @results["current_observation"]["display_location"]["state"] + "/" + @results["current_observation"]["display_location"]["city"] + ".json",)
+      @day_one = @ten_day_results["forecast"]["txt_forecast"]["forecastday"][2]
+      @day_two= @ten_day_results["forecast"]["txt_forecast"]["forecastday"][4]
+      @day_three = @ten_day_results["forecast"]["txt_forecast"]["forecastday"][6]
+    end
     respond_to do |format|
       format.html
       format.js
