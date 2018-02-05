@@ -1,7 +1,7 @@
 # _Next Beta_
 
 #### _Rails App for finding your next climb using Mapbox.js library_
-#### _See live demo at: https://nextbeta.herokuapp.com/ _
+#### _See live demo at: https://nextbeta.herokuapp.com/_
 
 
 #### By _**Adam Zinder**_
